@@ -8,6 +8,7 @@ Source0: 	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel desktop-file-utils
+BuildRequires:	intltool
 
 %description
 LXAppearance is a new GTK+ theme switcher developed for project LXDE.
