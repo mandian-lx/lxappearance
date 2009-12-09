@@ -1,6 +1,6 @@
 Summary:	A new feature-rich GTK+ theme switcher
 Name:     	lxappearance
-Version:	0.2.1
+Version:	0.3.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Other
@@ -27,6 +27,7 @@ rm -rf $RPM_BUILD_ROOT
 
 desktop-file-install --vendor='' \
 	--dir=%buildroot%_datadir/applications \
+	--remove-category='Gtk' --add-category='GTK' \
 	%buildroot%_datadir/applications/*.desktop
 
 %clean
