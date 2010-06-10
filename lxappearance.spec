@@ -1,7 +1,7 @@
 Summary:	A new feature-rich GTK+ theme switcher
 Name:     	lxappearance
 Version:	0.4.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Source0: 	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
@@ -26,10 +26,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{find_lang} %{name}
 
-desktop-file-install --vendor='' \
-	--dir=%buildroot%_datadir/applications \
-	--remove-category='Gtk' --add-category='GTK' \
-	%buildroot%_datadir/applications/*.desktop
+desktop-file-install --vendor="" \
+	--remove-key="NotShowIn" \
+	--add-only-show-in="LXDE" \
+	--dir=%buildroot%_datadir/applications %buildroot%_datadir/applications/*.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
