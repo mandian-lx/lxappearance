@@ -42,11 +42,9 @@ desktop-file-install --vendor="" \
 	--add-only-show-in="LXDE" \
 	--dir=%buildroot%_datadir/applications %buildroot%_datadir/applications/*.desktop
 
-rm -fr %{buildroot}
-
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-, root, root)
