@@ -5,7 +5,6 @@ Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Source0: 	http://downloads.sourceforge.net/project/lxde/%name-%version.tar.gz
-Patch0:		lxappearance.ru.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel desktop-file-utils
@@ -27,7 +26,6 @@ This package contains header files needed when building applications based on
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %configure2_5x
