@@ -28,6 +28,7 @@ This package contains header files needed when building applications based on
 %setup -q
 
 %build
+./autogen.sh
 %configure2_5x
 %make
 
@@ -42,21 +43,11 @@ desktop-file-install --vendor="" \
 	--add-only-show-in="LXDE" \
 	--dir=%buildroot%_datadir/applications %buildroot%_datadir/applications/*.desktop
 
-rm -fr %buildroot{%_includedir/lxappearance,%_libdir/pkgconfig/*.pc}
+rm -fr %{buildroot}
 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post  
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
 
 %files -f %{name}.lang
 %defattr(-, root, root)
