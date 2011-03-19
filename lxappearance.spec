@@ -1,13 +1,13 @@
 Summary:	A new feature-rich GTK+ theme switcher
 Name:     	lxappearance
 Version:	0.5.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Source0: 	http://downloads.sourceforge.net/project/lxde/%name-%version.tar.gz
-Patch0:		02_font_config.patch
+#Patch0:		02_font_config.patch
 Patch1:		01_gtk3_migration.patch
-Patch2:		20_lang_lxappearance.patch
+#Patch2:		20_lang_lxappearance.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel desktop-file-utils
@@ -29,9 +29,9 @@ This package contains header files needed when building applications based on
 
 %prep
 %setup -q
-%patch0 -p1 -b .add_font_antialiasing_control
+#%patch0 -p1 -b .add_font_antialiasing_control
 %patch1 -p1 -b .fix_GTK3_build
-%patch2 -p1 -b .lang_plugin
+#%patch2 -p1 -b .lang_plugin
 
 %build
 %configure2_5x
