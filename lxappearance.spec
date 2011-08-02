@@ -1,17 +1,11 @@
 Summary:	A new feature-rich GTK+ theme switcher
 Name:     	lxappearance
-Version:	0.5.0
-Release:	%mkrel 8
+Version:	0.5.1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Source0: 	http://downloads.sourceforge.net/project/lxde/%name-%version.tar.gz
-# use lxapperance.pot file and translate additional string
-Source1:	lxappearance_add.pot
-# add you translated lang_add.po file to source for this line without header (it's simplee concatinate with existing lang.po)
-Source2:	ru_add.po
-# patch for font config - hinting, subpixels and other stuff
-Patch0:		02_font_config.patch
-Patch1:		01_gtk3_migration.patch
+Patch0:		po.fuzzy.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel desktop-file-utils
@@ -33,12 +27,7 @@ This package contains header files needed when building applications based on
 
 %prep
 %setup -q
-%patch0 -p1 -b .add_font_antialiasing_control
-%patch1 -p1 -b .fix_GTK3_build
-
-#add additional language sections
-cp %SOURCE1 po
-cat %SOURCE2 >> po/ru.po
+%patch0 -p0
 
 %build
 %configure2_5x
@@ -64,6 +53,7 @@ rm -rf %{buildroot}
 %{_bindir}/%name
 %{_datadir}/applications/*.desktop
 %{_datadir}/%name
+%{_mandir}/man1/lxappearance.*
 
 %files devel
 %defattr(-,root,root)
