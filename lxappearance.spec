@@ -34,7 +34,7 @@ This package contains header files needed when building applications based on
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %{find_lang} %{name}
